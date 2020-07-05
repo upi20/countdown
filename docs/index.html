@@ -82,46 +82,48 @@
     </div>
     <div class="bio1 pad1">
       <table>
-        <tr>
-          <td>Dari</td>
-          <td>:</td>
-          <td>
-            <input type="date" id="inputDateF" value="" readonly="">
-            <input type="date" id="inputDateF1" value="">
-          </td>
-          <td>
-            <input type="time" id="inputTimeF" value="" readonly="">
-            <input type="time" id="inputTimeF1" value="">
-          </td>
-        </tr>
-        <tr>
-          <td>Ke</td>
-          <td>:</td>
-          <td>
-            <input type="date" id="inputDate" value="">
-            <input type="date" id="inputDate1" value="">
-          </td>
-          <td>
-            <input type="time" id="inputTime" value="">
-            <input type="time" id="inputTime1" value="">
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td colspan="2">
-            <button type="button" id="reset">Kembali</button>
-            <button type="button" id="hariIni">Hari ini</button>
-            <button type="button" id="berhenti">Berhenti</button>
-            <button type="button" id="lanjut">Lanjutkan</button>
-            <button type="button" id="hitung">Hitung</button>
-          </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-              <p id="keterangan"></p>
+        <thead>
+          <tr>
+            <th>Dari</th>
+            <th>Ke</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="date" id="inputDateF" value="" readonly="">
+              <input type="date" id="inputDateF1" value="">
             </td>
-        </tr>
+            <td>
+              <input type="date" id="inputDate" value="">
+              <input type="date" id="inputDate1" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="time" id="inputTimeF" value="" readonly="">
+              <input type="time" id="inputTimeF1" value="">
+            </td>
+            <td>
+              <input type="time" id="inputTime" value="">
+              <input type="time" id="inputTime1" value="">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button type="button" id="reset">Kembali</button>
+              <button type="button" id="hariIni">Hari ini</button>
+              <button type="button" id="berhenti">Berhenti</button>
+              <button type="button" id="lanjut">Lanjutkan</button>
+              <button type="button" id="hitung">Hitung</button>
+            </td>
+          </tr>
+          <tr>
+              <td colspan="3">
+                <p id="keterangan"></p>
+              </td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
