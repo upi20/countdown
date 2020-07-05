@@ -10,6 +10,9 @@
     body{
       font-family: sans-serif;
       color: #fff;
+      background: linear-gradient( 225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% );
+      background-repeat: no-repeat;
+      background-Attachment: fixed;
     }
 
     .bio{
@@ -334,9 +337,11 @@
   }
 
   function tambahTahun(){
+    var satuHari = -(1000 * 60 * 60 * 24);
     var dateX = timeDef.getTime();
     var dateY = new Date("08 10 " + timeDef.getFullYear() + " 00:00").getTime();
     if ((dateY - dateX) > 0) return timeDef.getFullYear() + "-08-10";
+    if ((dateY - dateX) > satuHari && (dateY - dateX) < 0) return timeDef.getFullYear() + "-08-10";
     else return (Number(timeDef.getFullYear()) + 1) + "-08-10";
   }
 
