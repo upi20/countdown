@@ -24,8 +24,13 @@
     .bio1{
       margin: 10px;
       border: solid 1px #fff;
-      padding: 10px;
       float: left;
+    }
+    .pad1{
+      padding: 2px;
+    }
+    .pad2{
+      padding: 10px;
     }
 
     a{
@@ -70,49 +75,55 @@
     }
   </style>
 </head>
-<body onload="mainFunction()" id="mainBody">
-    <div class="bio1">
+<body onload="mainFunction(); bgcolorRun()" id="mainBody">
+    <div class="bio1 pad2">
       <p id="time"></p>
       <p id="timeCustom">Silahkan masukan waktu yang akan dihitung.</p>
     </div>
-    <div class="bio1">
+    <div class="bio1 pad1">
       <table>
-        <tr>
-          <td>Dari</td>
-          <td>:</td>
-          <td>
-            <input type="date" id="inputDateF" value="" readonly="">
-            <input type="time" id="inputTimeF" value="" readonly="">
-            <input type="date" id="inputDateF1" value="">
-            <input type="time" id="inputTimeF1" value="">
-          </td>
-        </tr>
-        <tr>
-          <td>Ke</td>
-          <td>:</td>
-          <td>
-            <input type="date" id="inputDate" value="">
-            <input type="time" id="inputTime" value="">
-            <input type="date" id="inputDate1" value="">
-            <input type="time" id="inputTime1" value="">
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>
-            <button type="button" id="reset">Kembali</button>
-            <button type="button" id="hariIni">Hari ini</button>
-            <button type="button" id="berhenti">Berhenti</button>
-            <button type="button" id="lanjut">Lanjutkan</button>
-            <button type="button" id="hitung">Hitung</button>
-          </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-              <p id="keterangan"></p>
+        <thead>
+          <tr>
+            <th>Dari</th>
+            <th>Ke</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="date" id="inputDateF" value="" readonly="">
+              <input type="date" id="inputDateF1" value="">
             </td>
-        </tr>
+            <td>
+              <input type="date" id="inputDate" value="">
+              <input type="date" id="inputDate1" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="time" id="inputTimeF" value="" readonly="">
+              <input type="time" id="inputTimeF1" value="">
+            </td>
+            <td>
+              <input type="time" id="inputTime" value="">
+              <input type="time" id="inputTime1" value="">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button type="button" id="reset">Reset</button>
+              <button type="button" id="hariIni">Hari ini</button>
+              <button type="button" id="berhenti">Berhenti</button>
+              <button type="button" id="lanjut">Lanjutkan</button>
+              <button type="button" id="hitung">Hitung</button>
+            </td>
+          </tr>
+          <tr>
+              <td colspan="3">
+                <p id="keterangan"></p>
+              </td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
@@ -126,6 +137,8 @@
 </body>
 </html>
 <script>
+  var bgcolorno = 0;
+  var bgcolor;
   var x;
   var timeDef = new Date();
   var listSwitchA = [
@@ -234,7 +247,7 @@
 
   function stop(){
     clearInterval(x);
-    //
+    clearInterval(bgcolor);
   }
 
   function costum(){
@@ -245,6 +258,7 @@
   function lanjutkan(){
     clearInterval(x);
     mainFunction(true);
+    bgcolorRun();
   }
 
   function resetFun(){
@@ -316,7 +330,6 @@
   }
 
   function hitungFun(){
-    stop();
     displayNone(listSwitchA);
     displayShow(listSwitchB);
     idHtml("reset", "Kembali");
@@ -341,24 +354,25 @@
     getById("mainBody").style.backgroundRepeat = "no-repeat";
   }
 
+  function bgcolorRun(){
+    bgcolor = setInterval(function(){
+      if (bgcolorno < 8) bgcolorno++;
+      else bgcolorno = 1;
+      if(bgcolorno == 1) bgcolorFun("linear-gradient( 0deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 2) bgcolorFun("linear-gradient( 45deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 3) bgcolorFun("linear-gradient( 90deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 4) bgcolorFun("linear-gradient( 135deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 5) bgcolorFun("linear-gradient( 180deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 6) bgcolorFun("linear-gradient( 225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 7) bgcolorFun("linear-gradient( 270deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      else if(bgcolorno == 8) bgcolorFun("linear-gradient( 315deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+    },200);
+  }
+
   getById("nama").addEventListener("click", function(){
     window.open("https://api.whatsapp.com/send?phone=+6285798132505");
     window.open("https://t.me/+6285798132505");
     window.open("https://facebook.com/iseplutpinur7");
     window.open("https://github.com/iseplutpinur");
   });
-
-  var bgcolorno = 0;
-  var bgcolor = setInterval(function(){
-    if (bgcolorno < 8) bgcolorno++;
-    else bgcolorno = 1;
-    if(bgcolorno == 1) bgcolorFun("linear-gradient( 0deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 2) bgcolorFun("linear-gradient( 45deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 3) bgcolorFun("linear-gradient( 90deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 4) bgcolorFun("linear-gradient( 135deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 5) bgcolorFun("linear-gradient( 180deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 6) bgcolorFun("linear-gradient( 225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 7) bgcolorFun("linear-gradient( 270deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-    else if(bgcolorno == 8) bgcolorFun("linear-gradient( 315deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-  },200);
 </script>
