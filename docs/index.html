@@ -4,12 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hitung Mundur Ulang Tahun</title>
   <style>
+    td{
+      text-align: left;
+    }
     body{
       font-family: sans-serif;
       color: #fff;
-      background: linear-gradient( 45deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% );
-      background-repeat: no-repeat;
-      background-attachment: fixed;
     }
 
     .bio{
@@ -77,8 +77,15 @@
 </head>
 <body onload="mainFunction(); bgcolorRun()" id="mainBody">
     <div class="bio1 pad2">
-      <p id="time"></p>
-      <p id="timeCustom">Silahkan masukan waktu yang akan dihitung.</p>
+      <table>
+        <tbody id="time">
+        </tbody>
+      </table>
+      <table>
+        <tbody id="timeCustom">
+        </tbody>
+      </table>
+      <p id="titleHitung"></p>
     </div>
     <div class="bio1 pad1">
       <table>
@@ -137,6 +144,7 @@
 </body>
 </html>
 <script>
+  var titleHitungno = 0;
   var bgcolorno = 0;
   var bgcolor;
   var x;
@@ -223,7 +231,9 @@
       getById("keterangan").removeAttribute("style", 0);
     } else{
       getById('keterangan').style.display = "none";
+      getById("titleHitung").style.display = "none";
       hitungActionStrart();
+      titleHitungno++;
     }
   }
 
@@ -269,6 +279,7 @@
     displayNone(listSwitchB);
     displayShow(listSwitchA);
     idHtml("reset", "Reset");
+    getById("titleHitung").style.display = "none";
   }
 
   function hariIniFun(){
@@ -294,7 +305,7 @@
 
   function hideZero(n, t){
     if (n == 0)return "";
-    else return n + " " + t + " <br>";
+    else return "<tr><td>" + n + "  :</td><td>" + t + "</td></tr>";
   }
 
   function nol(angka = false){
@@ -332,8 +343,11 @@
   function hitungFun(){
     displayNone(listSwitchA);
     displayShow(listSwitchB);
+    if (titleHitungno == 0){
+      idHtml("titleHitung", "Silahkan masukan nilai waktu yang akan dihitung.");
+      getById("titleHitung").removeAttribute("style", 0);
+    } else getById('keterangan').style.display = "none";
     idHtml("reset", "Kembali");
-    getById('keterangan').style.display = "none";
   }
 
   function displayNone(x){
