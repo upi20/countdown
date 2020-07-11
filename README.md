@@ -22,7 +22,7 @@ https://iseplutpinur.github.io/countdown/
 	- Melanjutkan animasi background
 - Hitung: Untuk Beralih halaman ke halaman kostum
 - Apabila waktu **Dari** diubah dan telah melewati waktu **Ke** Maka perhitungan mundur akan EXPIRED
-- Apabila waktu **Dari** telah melewati waktu **Ke** Dengan sendirinya maka perhitungan mundur akan muncul pesan Selamat Ulang Tahun
+- Apabila waktu **Dari** telah melewati waktu **Ke** Dengan sendirinya maka perhitungan mundur akan muncul pesan Selamat Ulang Tahun Dan bertahan Selama 24 Jam
 
 ## Halaman Kostum
 <img src="Costum.png" >
