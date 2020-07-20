@@ -375,17 +375,12 @@
   }
 
   function bgcolorRun(){
+    var bgColSum = 128;
     bgcolor = setInterval(function(){
-      if (bgcolorno < 8) bgcolorno++;
-      else bgcolorno = 1;
-      if(bgcolorno == 1) bgcolorFun("linear-gradient( 0deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 2) bgcolorFun("linear-gradient( 45deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 3) bgcolorFun("linear-gradient( 90deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 4) bgcolorFun("linear-gradient( 135deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 5) bgcolorFun("linear-gradient( 180deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 6) bgcolorFun("linear-gradient( 225deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 7) bgcolorFun("linear-gradient( 270deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
-      else if(bgcolorno == 8) bgcolorFun("linear-gradient( 315deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
+      if (bgcolorno < bgColSum) bgcolorno++;
+      else bgcolorno = 0;
+      var deg = (360/bgColSum)*bgcolorno;
+      bgcolorFun("linear-gradient( " + deg + "deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% )");
     },200);
   }
 
